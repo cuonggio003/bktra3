@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::prefix('dealers')->group(function () {
-    Route::get('/home', [DealerController::class, 'showDealer'])->name('show.dealer');
+    Route::get('/', [DealerController::class, 'showDealer'])->name('show.dealer');
     Route::get('/create', [DealerController::class, 'createDealer'])->name('create.dealer');
     Route::post('/create', [DealerController::class, 'store'])->name('store.dealer');
     Route::get('/{id}update', [DealerController::class, 'updateDealer'])->name('update.dealer');
